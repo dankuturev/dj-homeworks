@@ -18,4 +18,5 @@ from django.urls import path
 from calculator.views import *
 urlpatterns = [
     path('<dish_name>/', dish),
+    path('', index)
 ]

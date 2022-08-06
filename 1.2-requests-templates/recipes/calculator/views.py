@@ -32,6 +32,11 @@ def dish(request, dish_name):
     return render(request, 'calculator/index.html', context)
 
 
+def index(request):
+    message = '<h2>В поисковой строке введите название блюда и количество порций в формате ' \
+              '/<блюдо>/?servings=<кол-во порций></h2>'
+    return HttpResponse(message)
+
 # Результат - render(request, 'calculator/index.html', context)
 # В качестве контекста должен быть передан словарь с рецептом:
 # context = {
