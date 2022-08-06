@@ -21,33 +21,14 @@ DATA = {
 
 
 # Напишите ваш обработчик. Используйте DATA как источник данных
-def omlet(request):
-    servings = int(request.GET.get("servings", 1))
+def dish(request, dish_name):
+    servings = int(request.GET.get('servings', 1))
+    recipe = dict(DATA.get(dish_name, {}))
+    for keys in recipe:
+        recipe[keys] *= servings
     context = {
-        'recipe': DATA['omlet'],
-        'servings': servings
+        'recipe': recipe
     }
-    print(servings)
-    return render(request, 'calculator/index.html', context)
-
-
-def pasta(request):
-    servings = int(request.GET.get("servings", 1))
-    context = {
-        'recipe': DATA['pasta'],
-        'servings': servings
-    }
-    print(servings)
-    return render(request, 'calculator/index.html', context)
-
-
-def buter(request):
-    servings = int(request.GET.get("servings", 1))
-    context = {
-        'recipe': DATA['buter'],
-        'servings': servings
-    }
-    print(servings)
     return render(request, 'calculator/index.html', context)
 
 
