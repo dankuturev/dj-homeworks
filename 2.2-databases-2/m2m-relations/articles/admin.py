@@ -25,7 +25,6 @@ class RelationshipInlineFormset(BaseInlineFormSet):
         return super().clean()
 
 
-
 class ScopeInline(admin.TabularInline):
     model = ArticleScope
     formset = RelationshipInlineFormset
@@ -40,5 +39,4 @@ class ScopeAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     pass
     inlines = [ScopeInline]
-
 
