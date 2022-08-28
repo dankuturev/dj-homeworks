@@ -9,7 +9,7 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [SearchFilter]
-    search_fields = ['title', 'id']
+    search_fields = ['title', 'id', 'description']
 
 
 class StockViewSet(ModelViewSet):
